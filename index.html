@@ -4,9 +4,25 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<link rel="stylesheet" href="">
+	<!-- <link rel="stylesheet" href="css/styles.css"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script src="js/angular-route.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-git2.min.js"></script>
+	<script src="js/controller.js"></script>
 </head>
 <body ng-controller="ecommerce-controller">
 	
+<div class="weather-wrapper container">
+	<div class="location">Location: {{weatherJSON.name}}, {{weatherJSON.sys.country}}</div>
+	<div class="tempature">Temperature: {{FahrenTemp}}</div>
+
+	
+	
+	{{weatherJSON.weather[0].main}} {{weatherJSON.weather[0].description}}
+
+	Humidity: {{weatherJSON.main.humidity}}%
+</div>
+
 </body>
 </html>
