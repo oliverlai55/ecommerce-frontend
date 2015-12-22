@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="ecommerce">
 <head>
-
 	<title></title>
-	<!-- <link rel="stylesheet" href="css/styles.css"> -->
+	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script src="js/angular-route.min.js"></script>
@@ -20,9 +19,9 @@
 		Humidity: {{weatherJSON.main.humidity}}%
 	</div>
 
-<!-- Resistration/Log in page -->
+	<!-- Resistration/Log in page -->
 	<div class="col-md-4" ng-hide=loggedin>
-		<h1>Login</h2>
+		<h1>Login</h1>
 			<div ng-show="error" class="alert alert-danger"></div>
 			<form class="form" ng-submit="login()">
 				<div class="form-group">
@@ -35,14 +34,17 @@
 				</div>
 				<div class="text-danger">
 					{{message}}
+					<!-- this shows the err from $scope -->
 				</div>
 				<div>
 					<button type="submit" class="btn btn-default" ng-disabled="disabled">Register</button>
 				</div>
 			</form>
-		</div>
+	</div>
+
 		<div class="col-md-4" ng-hide=!loggedin>
-			<h1>You are logged in!</h1>
+			<h1>{{success}}</h1>
 		</div>
-	</body>
-	</html>
+	
+</body>
+</html>
