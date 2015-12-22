@@ -16,6 +16,8 @@ ecommerceApp.controller('ecommerce-controller', function ($scope, $http){
 			console.log(theData.data);
 			console.log(theData.data.sys.country);
 		})
+
+
 	//This will fire on ng-submit. We want to make a post request to the server
 	//and send it username and password. They will be available in body.req
 	//on the server
@@ -24,11 +26,18 @@ ecommerceApp.controller('ecommerce-controller', function ($scope, $http){
 	 $http.post('http://localhost:3000/register', {username: $scope.username, password: $scope.password})
 	    // handle success
 	    .success(function (data, status) {
-	    	if(data.status = "Registration Successful"){
+	    	if(data.err){
+	    		$scope.loggedin = false;
+	    		$scope.message = data.err;
+	    	}
+	    	if(data.status){
+	    		//if registration success
 				//do angualar stuff
 				console.log("success");
 				$scope.loggedin = true;
-				//if loggedin = true, ng-hide from index.html will hide 
+				//if loggedin = true, ng-hide from index.html will hide
+				//because they made it through authentication 
+				$scope.success = data.status
 			} else {
 				user = false;
 			}
