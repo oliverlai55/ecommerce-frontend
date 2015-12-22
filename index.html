@@ -13,16 +13,34 @@
 </head>
 <body ng-controller="ecommerce-controller">
 	
-<div class="weather-wrapper container">
-	<div class="location">Location: {{weatherJSON.name}}, {{weatherJSON.sys.country}}</div>
-	<div class="tempature">Temperature: {{FahrenTemp}}</div>
+	<div class="weather-wrapper container">
+		<div class="location">Location: {{weatherJSON.name}}, {{weatherJSON.sys.country}}</div>
+		<div class="tempature">Temperature: {{FahrenTemp}}</div>
+		{{weatherJSON.weather[0].main}} {{weatherJSON.weather[0].description}}
 
-	
-	
-	{{weatherJSON.weather[0].main}} {{weatherJSON.weather[0].description}}
+		Humidity: {{weatherJSON.main.humidity}}%
+	</div>
 
-	Humidity: {{weatherJSON.main.humidity}}%
-</div>
-
-</body>
-</html>
+<!-- Resistration/Log in page -->
+	<div class="col-md-4" ng-hide=loggedin>
+		<h1>Login</h2>
+			<div ng-show="error" class="alert alert-danger"></div>
+			<form class="form" ng-submit="login()">
+				<div class="form-group">
+					<label>Username</label>
+					<input type="text" class="form-control" name="username" ng-model="username" required>
+				</div>
+				<div class="form-group">
+					<label>Password</label>
+					<input type="password" class="form-control" name="password" ng-model="password" required>
+				</div>
+				<div>
+					<button type="submit" class="btn btn-default" ng-disabled="disabled">Register</button>
+				</div>
+			</form>
+		</div>
+		<div class="col-md-4" ng-hide=!loggedin>
+			<h1>You are logged in!</h1>
+		</div>
+	</body>
+	</html>
